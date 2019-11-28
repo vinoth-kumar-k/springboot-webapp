@@ -1,3 +1,4 @@
+#latest alpine linux image chosen as base image
 FROM alpine:latest
 
 RUN apk update && \
