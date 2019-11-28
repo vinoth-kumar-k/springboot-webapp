@@ -1,0 +1,11 @@
+FROM alpine:latest
+
+RUN apk update && \
+    apk add --no-cache openjdk8
+
+ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
+ENV PATH $PATH:$JAVA_HOME/bin
+
+COPY target/gs-serving-web-content-0.1.0.jar gs-serving-web-content-0.1.0.jar 
+
+CMD [ "java","-jar","gs-serving-web-content-0.1.0.jar" ]
