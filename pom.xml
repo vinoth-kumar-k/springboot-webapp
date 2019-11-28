@@ -47,5 +47,16 @@
             </plugin>
         </plugins>
     </build>
-
+    <distributionManagement>
+    <repository>
+        <id>central</id>
+        <name>amawscertified-artifactory-primary-0-releases</name>
+        <url>https://amawscertified.jfrog.io/amawscertified/test123</url>
+    </repository>
+    <snapshotRepository>
+        <id>snapshots</id>
+        <name>amawscertified-artifactory-primary-0-snapshots</name>
+        <url>https://amawscertified.jfrog.io/amawscertified/test123</url>
+    </snapshotRepository>
+</distributionManagement>
 </project>
