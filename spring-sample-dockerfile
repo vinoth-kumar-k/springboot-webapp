@@ -1,12 +1,17 @@
 #latest alpine linux image chosen as base image
 FROM alpine:latest
 
+ARG cred
+
+WORKDIR /opt/app
+
 RUN apk update && \
-    apk add --no-cache openjdk8
+    apk add openjdk8 && \
+    apk add --virtual .build-dependencies curl && \
+    curl -u $cred -O "https://amawscertified.jfrog.io/amawscertified/test123/org/springframework/gs-serving-web-content/0.1.0/gs-serving-web-content-0.1.0.jar" && \
+    apk del .build-dependencies
 
 ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
 ENV PATH $PATH:$JAVA_HOME/bin
-
-COPY target/gs-serving-web-content-0.1.0.jar gs-serving-web-content-0.1.0.jar 
 
 CMD [ "java","-jar","gs-serving-web-content-0.1.0.jar" ]
