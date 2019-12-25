@@ -2,4 +2,4 @@ This is a forked project from https://github.com/spring-guides/gs-serving-web-co
 
 Using the spring sample web application to automate deployment with docker and jenkins.
 
-Using AWS to host the application.
+Will be using AWS EC2/ECS to host the application.
